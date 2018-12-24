@@ -1,0 +1,10 @@
+.App{
+  min-width: 50vw;
+  max-width: 100%;
+  width: 800px;
+  margin: auto;
+  border: 1px solid black;
+}
+body {
+  margin:0
+}
