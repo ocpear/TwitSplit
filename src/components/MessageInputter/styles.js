@@ -1,6 +1,6 @@
 export default theme => ({
     messageInputterContainer: {
-        borderTop: "1px solid black",
+        borderTop: "1px solid #E5E5E9",
         position: "relative",
     },
     messageInput: {
@@ -8,7 +8,7 @@ export default theme => ({
         display: "inline-block",
         overflowY: "auto",
         resize:"none",
-        padding:2,
+        padding:"2px 12px",
     },
     messageSendButton: {
         position: "absolute",

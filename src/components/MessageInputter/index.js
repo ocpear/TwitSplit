@@ -7,9 +7,10 @@ import PropTypes from 'prop-types';
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
 import actions from '../../redux/actions';
+import Notification from '../Notification';
 
 
-const MAX_CHUNK_LENGTH = 10;
+const MAX_CHUNK_LENGTH = 50;
 
 class MessageInputter extends Component {
   constructor(props) {
@@ -25,15 +26,19 @@ class MessageInputter extends Component {
     if (!this.state.inputData) {
       return;
     }
-    
-    try {
-      let messageSplited = message.splitMessage(this.state.inputData, MAX_CHUNK_LENGTH)
+
+    let messageSplited = message.splitMessage(this.state.inputData, MAX_CHUNK_LENGTH)
+
+    if (Array.isArray(messageSplited)) {
       this.props.addMessage(messageSplited)
       this.setState({
         inputData: ""
       })
-    } catch (error) {
-      alert(error)
+    } else {
+      this.setState({
+        notify: messageSplited,
+        notifyVariant: Notification.VARIANT_ERROR,
+      })
     }
   }
 
@@ -46,10 +51,22 @@ class MessageInputter extends Component {
     });
   }
 
+  handleCloseNotify = (event, reason) => {
+    this.setState({
+      notify: undefined,
+      notifyVariant: undefined,
+    })
+  }
+
   render = () => {
     const { classes } = this.props;
     return (
       <div className={classes.messageInputterContainer}>
+        <Notification
+          variant={this.state.notifyVariant}
+          message={this.state.notify}
+          onClose={this.handleCloseNotify}
+        />
         <form onSubmit={this.handleSubmit} >
           <TextField
             placeholder="Please write something!"
