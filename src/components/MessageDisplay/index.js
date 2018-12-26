@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './styles'
+import styles from './styles';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core';
 import { compose } from 'recompose';

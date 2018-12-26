@@ -4,7 +4,7 @@ export default theme => ({
         position: "relative",
     },
     messageInput: {
-        width: "calc( 100% - 105px)",
+        width: "calc( 100% - 115px)",
         display: "inline-block",
         overflowY: "auto",
         resize:"none",

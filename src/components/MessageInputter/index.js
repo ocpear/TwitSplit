@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
 import message from '../../utils/message';
-import { Button, TextField } from '@material-ui/core';
-import styles from './styles'
+import { Button, TextField, withStyles } from '@material-ui/core';
+import styles from './styles';
 import PropTypes from 'prop-types';
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
